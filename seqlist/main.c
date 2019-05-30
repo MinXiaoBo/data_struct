@@ -5,6 +5,7 @@
 #define random(x) (rand() % x)
 
 int main(int argc, char * argv[]){
+    seqList mySeqList;
     List L = &mySeqList;
     initList(L);
 
@@ -38,10 +39,9 @@ int main(int argc, char * argv[]){
 
     printf("the pos of %d is %d.\n", 5, binSearch(L, 5));
 
-    if(destroyList(L) < 0){
-        printf("destroy error!\n");
-    }
-    //printSeqList(L);
+    destroyList(L);
+
+    printSeqList(L);
 
     return 0;
 }

@@ -17,11 +17,12 @@ int initList(List L){
     return 0;
 }
 
-int destoryList(List L){
+int destroyList(List L){
     if(L->_elem != NULL){
         free(L->_elem);
     }
     L->_size = 0;
+    printf("destroy finish!\n");
     return 0;
 }
 
@@ -54,7 +55,7 @@ bool empty(List L){
     return !(L->_size);
 }
 
-int size(List L){
+Rank size(List L){
     return L->_size;
 }
 
@@ -68,20 +69,20 @@ int disordered(List L){
     return count;
 }
 
-pos insertElem(List L, dataType e, pos p){
+Rank insertElem(List L, dataType e, Rank r){
     expend(L);
-    for(int i = L->_size; i > p; i--){
+    for(int i = L->_size; i > r; i--){
         L->_elem[i+1] = L->_elem[i];
     }
-    L->_elem[p] = e;
+    L->_elem[r] = e;
     L->_size++;
-    return p;
+    return r;
 }
 
-dataType removeElem(List L, pos p){
+dataType removeElem(List L, Rank r){
     shrink(L);
-    dataType temp = L->_elem[p];
-    for(int i = p; i < L->_size; i++){
+    dataType temp = L->_elem[r];
+    for(int i = r; i < L->_size; i++){
         L->_elem[i] = L->_elem[i+1];
     }
     L->_size--;
@@ -89,8 +90,8 @@ dataType removeElem(List L, pos p){
 }
 
 bool bubble(List L){
-    pos lo = 0;
-    pos hi = L->_size;
+    Rank lo = 0;
+    Rank hi = L->_size;
     bool sorted = true;
     while(++lo < hi){
         if(L->_elem[lo-1] > L->_elem[lo]){
@@ -105,18 +106,18 @@ void bubbleSort(List L){
     while(!bubble(L));
 }
 
-pos findElem(List L, dataType e){
-    pos lo = 0;
-    pos hi = L->_size;
+Rank findElem(List L, dataType e){
+    Rank lo = 0;
+    Rank hi = L->_size;
     while(lo < hi-- && e != L->_elem[hi]);
     return hi;
 }
 
-pos binSearch(List L, dataType e){
-    pos lo = 0;
-    pos hi = L->_size;
+Rank binSearch(List L, dataType e){
+    Rank lo = 0;
+    Rank hi = L->_size;
     while(lo < hi){
-        pos mi = (lo + hi) >> 1;
+        Rank mi = (lo + hi) >> 1;
         (e < L->_elem[mi]) ? (hi = mi) : (lo = mi+1);
     }
     return lo--;
