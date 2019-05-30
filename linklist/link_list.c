@@ -104,7 +104,7 @@ DataType removeAllByData(LinkList head, DataType e){
 	return e;
 }
 
-void recursive(LinkList head){
+void reverse(LinkList head){
 	LinkList head_n = head->next;
 	head->next = NULL;
 	while(head_n != NULL){
@@ -113,7 +113,7 @@ void recursive(LinkList head){
 	}
 }
 
-void recursive_R(LinkList head, DataType e){
+void reverse_R(LinkList head, DataType e){
 	LinkList head_n = head->next;
 	if( head_n == NULL){
 		return ;
@@ -121,9 +121,9 @@ void recursive_R(LinkList head, DataType e){
 	if( head_n->data == e){
 		head->next = head_n->next;
 		free(head_n);
-		recursive_R(head, e);
+		reverse_R(head, e);
 	}else{
-		recursive_R(head_n, e);
+		reverse_R(head_n, e);
 	}
 }
 
