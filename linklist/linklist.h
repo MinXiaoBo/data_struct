@@ -17,17 +17,17 @@ typedef struct node{
 typedef linkNode * linkList;
 
 
-linkList initList();
+void initList(linkList header);
 void destroyList(linkList header);
 bool empty(linkList header);
 Rank size(linkList header);
 void append(linkList header, dataType e);
 Rank insert(linkList header, dataType e, Rank r);
 dataType removeByIndex(linkList header, Rank r);
+void removeAllByData_R(linkList header, dataType e);
 Rank removeByData(linkList header, dataType e);
 int removeAllByData(linkList header, dataType e);
 void reverse(linkList header);
-void reverse_R(linkList header);
 linkList locNode(linkList header, dataType e);
 linkList getNode(linkList header, Rank r);
 void printList(linkList header);
