@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 #ifndef LinkList_H
 #define LinkList_H
 

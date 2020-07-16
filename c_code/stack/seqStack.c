@@ -14,7 +14,6 @@ typedef struct{
 
 typedef stackNode * stack;
 
-
 stack initStack(){
     stack S = (stack)malloc(sizeof(stackNode));
     if(!S)

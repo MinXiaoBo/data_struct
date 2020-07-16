@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "seqlist.h"
 
 #define random(x) (rand() % x)

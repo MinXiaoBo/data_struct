@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include "linklist.h"
 
 void initList(linkList header){
